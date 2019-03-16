@@ -99,7 +99,7 @@ def print_report(type, subtitle, sql):
         db_result = db_connect(sql)
     if (sql != "NA"):
         for db_row in db_result:
-            print ('\t' + str(db_row[0]) + ' - ' + str(db_row[1]))
+            print('\t' + str(db_row[0]) + ' - ' + str(db_row[1]))
 
 
 # This section executes reports and prints output to screen
@@ -110,4 +110,4 @@ print_report("body", "Most popular article authors of all time",
              popularAuthorsSql)
 print_report("body", "Days where more than 1% of http requests led to errors",
              responseErrorPercentSql)
-#report_footer()
+# report_footer()
