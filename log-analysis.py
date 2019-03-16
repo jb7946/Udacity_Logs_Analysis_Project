@@ -25,7 +25,7 @@ limit 3;
 # 2. Who are the most popular article authors of all time?
 popularAuthorsSql = '''
 select authors.name as author_name,
-     concat(to_char(sum(logs.count_slug),'000,999'),' ','views')
+     concat(to_char(sum(logs.count_slug),'999,999'),' ','views')
      as article_views
 from articles
 inner join authors on articles.author=authors.id
@@ -40,8 +40,8 @@ order by sum(logs.count_slug) desc;
 # sql for question 3:
 # 3. On which days did more than 1% of requests lead to errors?
 responseErrorPercentSql = '''
-select to_char(traffic_analysis.dayactivity,'Mon dd, yyyy') as date_activity,
-concat(traffic_analysis.prcnt,' % errors') as percent_errors
+select to_char(traffic_analysis.dayactivity, 'Mon dd, yyyy') as date_activity,
+     concat(traffic_analysis.prcnt,' % errors') as percent_errors
 from (select alltraffic.dayactivity, alltraffic.dayresponse,
       errtraffic.errresponse,
       round((cast(errtraffic.errresponse
